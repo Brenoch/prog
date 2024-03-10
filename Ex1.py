@@ -9,4 +9,3 @@ x2 = (- B - delta**0.5)/(2*A)
 
 print(x1)
 print(x2)
-
