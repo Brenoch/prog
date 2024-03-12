@@ -45,7 +45,7 @@ def main():
             break
 
         #ataque monstro
-        dano_monstro = random.randint(1, ataque_monstro)
+        dano_monstro = random.randint(1, ataque_monstro) - defesa_aventureiro
         vida_aventureiro -= dano_monstro
         print(f"O monstro atacou o aventureiro e deu {dano_monstro} de dano")
 
