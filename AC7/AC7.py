@@ -97,7 +97,4 @@ def menor_e_posicao():
 
 menor_e_posicao()
 
-"""
-Exercício : 1182
 
-"""
