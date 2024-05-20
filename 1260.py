@@ -1,25 +1,29 @@
-from collections import Counter
+from collections import defaultdict
 
-def calcular_porcentagem(lista_arvores):
-    contador_arvores = Counter(lista_arvores)
-    total_arvores = len(lista_arvores)
-    porcentagens_arvores = {arvore: (contagem / total_arvores) * 100 for arvore, contagem in contador_arvores.items()}
-    return porcentagens_arvores
+def calcular_porcentagem_arvores():
+    N = int(input())
+    input()
 
-def imprimir_porcentagens_arvores(porcentagens_arvores):
-    for arvore in sorted(porcentagens_arvores.keys()):
-        print(f"{arvore} {porcentagens_arvores[arvore]:.4f}")
+    for _ in range(N):
+        contagem_arvores = defaultdict(int)
+        total_arvores = 0
 
-N = int(input())
+        while True:
+            try:
+                arvore = input()
+                if arvore == '':
+                    break
+                contagem_arvores[arvore] += 1
+                total_arvores += 1
+            except EOFError:
+                break
 
-for _ in range(N):
-    lista_arvores = []
-    while True:
-        arvore = input()
-        if arvore == '':
-            break
-        lista_arvores.append(arvore)
-    porcentagens_arvores = calcular_porcentagem(lista_arvores)
-    imprimir_porcentagens_arvores(porcentagens_arvores)
-    if _ < N-1:
-        print()
+        porcentagens = {arvore: (contagem / total_arvores) * 100 for arvore, contagem in contagem_arvores.items()}
+
+        for arvore in sorted(porcentagens.keys()):
+            print(f'{arvore} {porcentagens[arvore]:.4f}')
+
+        if _ < N - 1:
+            print()
+
+calcular_porcentagem_arvores()
